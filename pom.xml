@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>prg.cloudfoundry</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>visitors</artifactId>
 	<name>Visitors</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -130,7 +130,7 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-        
+    
 	</dependencies>
 	<repositories>
 		<!-- For testing against latest Spring snapshots -->
@@ -149,6 +149,13 @@
 			<snapshots><enabled>false</enabled></snapshots>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repository.springframework.maven.milestone</id>
+			<name>Spring Framework Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</pluginRepository>
+ 	</pluginRepositories>
 	<build>
 		<plugins>
 			<plugin>
@@ -162,9 +169,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<warName>abc</warName>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -216,6 +220,17 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<junitArtifactName>junit:junit</junitArtifactName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.cloudfoundry</groupId>
+				<artifactId>cf-maven-plugin</artifactId>
+				<version>1.0.0.M1</version>
+				<configuration>
+					<server>cloudfoundry</server>
+					<target>http://api.cloudfoundry.com</target>
+					<url>visitors.cloudfoundry.com</url>
+					<memory>512</memory>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -53,7 +53,7 @@
           <a class="youtube" href="http://www.youtube.com/cloudfoundry" target="_blank">You Tube</a>
         </div>
         <div class="links right">
-          <a href="http://www.cloudfoundry.com/faq" target="_blank">FAQ</a>
+          <!-- <a href="http://www.cloudfoundry.com/faq" target="_blank">FAQ</a>
           |
           <a href="http://support.cloudfoundry.com/forums" target="_blank">Forums</a>
           |
@@ -65,7 +65,7 @@
           |
           <a href="http://www.cloudfoundry.com/legal" target="_blank">Legal</a>
           |
-          <a href="http://www.vmware.com/help/privacy.html" target="_blank">Privacy</a>
+          <a href="http://www.vmware.com/help/privacy.html" target="_blank">Privacy</a> -->
 
           <div class="copyright">
            Copyright &copy; 2011. <a href="http://www.vmware.com/" target="_blank">VMware, Inc</a>. All rights reserved.
