@@ -1,4 +1,4 @@
-# Spring AMQP Stocks Demo for CloudFoundry
+# Spring Data and MongoDB sample for CloudFoundry
 
 This app is a sample app featuring Spring Data and MongoDB. It is 
 made to run on [CloudFoundry](http://cloudfoundry.com).
