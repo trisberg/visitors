@@ -11,7 +11,7 @@
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.0.6.RELEASE</org.springframework-version>
 		<org.springframework.mongo-version>1.0.0.M4</org.springframework.mongo-version>
-		<org.cloudfoundry-version>0.8.1.BUILD-SNAPSHOT</org.cloudfoundry-version>
+		<org.cloudfoundry-version>0.8.0</org.cloudfoundry-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 	</properties>
