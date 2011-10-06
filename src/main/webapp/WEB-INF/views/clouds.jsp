@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <html lang="en">
 	<head>
@@ -6,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="author" content="VMware" />
 		<meta name="copyright" content="Copyright VMware 2011. All Rights Reserved." />
-		<title>Mongo Data Dump</title>
+		<title>Cloud Foundry @ Visitors</title>
 		<link rel="stylesheet" href="/resources/styles/main.css">
 		<!--[if IE]><link rel="stylesheet" href="/resources/styles/ie.css"><![endif]-->
 	</head>
@@ -32,13 +34,52 @@
 			<div class="container">
 				<div class="content-wrap content">
 					<div class="site-wrap">
-						<h1>Mongo Data Dump</h1>
-
-						<p><c:out value="${aggregates}"/></p>
-						<p><c:out value="${mongodata}"/></p>
-						<p><c:out value="${clouds}"/></p>
-						<a href="/">Home</a>
+						<h1>Clouds</h1>
 	
+						<h4>The visitor counts for all clouds:</h4>
+						<table width="60%">
+							<thead>
+								<tr>
+									<th width="60%"><u>Cloud Address</u></th>
+									<th width="30%" align="right"><u>Visits</u></th>
+									<th width="10%"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="cloud" items="${cloudList}">
+									<tr>
+										<td>${cloud.address}</td>
+										<td>${cloud.visitCount}</td>
+										<td>[ <a href="cloud/delete/${cloud.id}">X</a> ]</td>
+									</tr>
+								</c:forEach>
+								<tr>
+									<td>TOTAL</td>
+									<td>${total}</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+		<form:form modelAttribute="cloud">
+			<fieldset>
+		        <div>
+					<div>
+						<label for="address">New Cloud Address:</label>
+					</div>
+					<div>
+						<form:input class="span-9" path="address" />
+					</div>
+				</div>
+				<div>
+					<button type="submit" id="proceed" name="_proceed">Add</button>
+				</div>
+			</fieldset>
+		</form:form>	
+
 					</div>
 				</div>
 			</div>
@@ -55,19 +96,19 @@
         </div>
         <div class="links right">
           <!-- <a href="http://www.cloudfoundry.com/faq" target="_blank">FAQ</a>
-          |
-          <a href="http://support.cloudfoundry.com/forums" target="_blank">Forums</a>
-          |
-          <a href="http://support.cloudfoundry.com/home" target="_blank">Support</a>
-          |
-          <a href="http://blog.cloudfoundry.com/" target="_blank">Blog</a>
-          |
-          <a href="http://www.cloudfoundry.com/terms" target="_blank">Terms</a>
-          |
-          <a href="http://www.cloudfoundry.com/legal" target="_blank">Legal</a>
-          |
-          <a href="http://www.vmware.com/help/privacy.html" target="_blank">Privacy</a> -->
-
+           |
+           <a href="http://support.cloudfoundry.com/forums" target="_blank">Forums</a>
+           |
+           <a href="http://support.cloudfoundry.com/home" target="_blank">Support</a>
+           |
+           <a href="http://blog.cloudfoundry.com/" target="_blank">Blog</a>
+           |
+           <a href="http://www.cloudfoundry.com/terms" target="_blank">Terms</a>
+           |
+           <a href="http://www.cloudfoundry.com/legal" target="_blank">Legal</a>
+           |
+           <a href="http://www.vmware.com/help/privacy.html" target="_blank">Privacy</a> -->
+ 
           <div class="copyright">
            Copyright &copy; 2011. <a href="http://www.vmware.com/" target="_blank">VMware, Inc</a>. All rights reserved.
           </div>

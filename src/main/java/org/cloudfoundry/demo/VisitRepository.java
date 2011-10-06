@@ -78,6 +78,10 @@ public class VisitRepository {
 		return aggregateData.toString();
 	}
 
+	public Long getCount() {
+		return mongoTemplate.getCollection(mongoTemplate.getCollectionName(Visit.class)).count();
+	}
+
 	public String getDump() {
 		final StringBuilder mongoData = new StringBuilder();
 		mongoTemplate.execute(LAST10, 
